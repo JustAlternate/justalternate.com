@@ -46,8 +46,20 @@ main {
   cursor:none;
 }
 
+comment {
+  position:absolute;
+  top:1vh;
+  right:1vw;
+  color: white;
+  font-style: normal;
+  text-align: center;
+  font-weight: 500;
+  font-size:1em;
+  padding:1vh;
+}
+
 h1, h2, h3, blockquote {
-  font-weight: 300;
+  font-weight: 500;
   font-style: normal;
   text-align: center;
 }
@@ -67,6 +79,7 @@ header {
   font-size: 1.4rem;
   padding:1rem;
   margin-bottom: var(--spacing);
+  height:fit-content;
 }
 
 section {
@@ -110,6 +123,7 @@ blockquote p {
   color: black;
   background-color: white;
   display: inline;
+  line-height:10vh;
 }
 
 
@@ -214,6 +228,7 @@ img{
     font-size: 1.rem;
     padding:1rem;
     margin-bottom: var(--spacing);
+    height:fit-content;
   }
 
   span{
