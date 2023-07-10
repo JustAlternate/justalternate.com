@@ -47,6 +47,8 @@ Array(800).fill().forEach(addStar);
 // Earth
 
 const earthTexture = new THREE.TextureLoader().load('newlook/assets/earth.webp');
+earthTexture.minFilter = THREE.NearestFilter;
+earthTexture.magFilter = THREE.NearestFilter;
 const earth = new THREE.Mesh(new THREE.SphereGeometry(1, 64, 64), new THREE.MeshBasicMaterial({ map: earthTexture }));
 scene.add(earth);
 earth.position.x = -0.5;
@@ -58,6 +60,8 @@ earth.rotation.y = -1.5;
 
 // Moon
 const moonTexture = new THREE.TextureLoader().load('newlook/assets/moon.webp');
+moonTexture.minFilter = THREE.NearestFilter;
+moonTexture.magFilter = THREE.NearestFilter;
 const moon = new THREE.Mesh(new THREE.SphereGeometry(0.8, 64, 64), new THREE.MeshBasicMaterial({ map: moonTexture }));
 scene.add(moon);
 moon.position.x = 3;
@@ -69,6 +73,8 @@ moon.rotation.y = -1.5;
 
 // Mercury
 const mercuryTexture = new THREE.TextureLoader().load('newlook/assets/mercury.webp');
+mercuryTexture.minFilter = THREE.NearestFilter;
+mercuryTexture.magFilter = THREE.NearestFilter;
 const mercury = new THREE.Mesh(new THREE.SphereGeometry(1.2, 64, 64), new THREE.MeshBasicMaterial({ map: mercuryTexture }));
 scene.add(mercury);
 mercury.position.x = 3.45;
@@ -77,6 +83,8 @@ mercury.position.z = 23.6;
 
 // Mars
 const marsTexture = new THREE.TextureLoader().load('newlook/assets/mars.webp');
+marsTexture.minFilter = THREE.NearestFilter;
+marsTexture.magFilter = THREE.NearestFilter;
 const mars = new THREE.Mesh(new THREE.SphereGeometry(1.75, 64, 64), new THREE.MeshBasicMaterial({ map: marsTexture }));
 scene.add(mars);
 mars.position.x = -1.22;
@@ -84,7 +92,9 @@ mars.position.y = 3.5;
 mars.position.z = 60.9;
 
 // Venus
-const venusTexture = new THREE.TextureLoader().load('newlook/assets/venus.webp');
+const venusTexture = new THREE.TextureLoader().load('newlook/assets/venus.jpg');
+venusTexture.minFilter = THREE.NearestFilter;
+venusTexture.magFilter = THREE.NearestFilter;
 const venus = new THREE.Mesh(new THREE.SphereGeometry(3, 64, 64), new THREE.MeshBasicMaterial({ map: venusTexture }));
 scene.add(venus);
 venus.position.x = -3;
@@ -93,6 +103,8 @@ venus.position.z = 119;
 
 // Neptune
 const neptuneTexture = new THREE.TextureLoader().load('newlook/assets/neptune.webp');
+neptuneTexture.minFilter = THREE.NearestFilter;
+neptuneTexture.magFilter = THREE.NearestFilter;
 const neptune = new THREE.Mesh(new THREE.SphereGeometry(12, 64, 64), new THREE.MeshBasicMaterial({ map: neptuneTexture }));
 scene.add(neptune);
 neptune.position.x = 16;
@@ -101,6 +113,8 @@ neptune.position.z = 213;
 
 // Uranus
 const uranusTexture = new THREE.TextureLoader().load('newlook/assets/uranus.webp');
+uranusTexture.minFilter = THREE.NearestFilter;
+uranusTexture.magFilter = THREE.NearestFilter;
 const uranus = new THREE.Mesh(new THREE.SphereGeometry(12, 64, 64), new THREE.MeshBasicMaterial({ map: uranusTexture }));
 scene.add(uranus);
 uranus.position.x = -10;
@@ -110,15 +124,45 @@ uranus.position.z = 277;
 
 // Saturn
 const saturnTexture = new THREE.TextureLoader().load('newlook/assets/saturn(no ring).webp');
+saturnTexture.minFilter = THREE.NearestFilter;
+saturnTexture.magFilter = THREE.NearestFilter;
 const saturn = new THREE.Mesh(new THREE.SphereGeometry(30, 64, 64), new THREE.MeshBasicMaterial({ map: saturnTexture }));
 scene.add(saturn);
 saturn.position.x = 40;
 saturn.position.y = -10;
 saturn.position.z = 444;
-
+// Saturn-ring
+const texture = new THREE.TextureLoader().load(
+  "https://i.postimg.cc/zz7Gr430/saturn-rings-top.png"
+);
+texture.minFilter = THREE.NearestFilter;
+texture.magFilter = THREE.NearestFilter;
+const geometry = new THREE.RingGeometry(30, 70, 64);
+var pos = geometry.attributes.position;
+var v3 = new THREE.Vector3();
+for (let i = 0; i < pos.count; i++){
+  v3.fromBufferAttribute(pos, i);
+  geometry.attributes.uv.setXY(i, v3.length() < 41 ? 0 : 1, 1);
+}
+const material = new THREE.MeshBasicMaterial({
+  map: texture,
+  color: 0xffffff,
+  side: THREE.DoubleSide,
+  transparent:true,
+});
+const saturn_ring = new THREE.Mesh(geometry, material);
+scene.add(saturn_ring);
+saturn_ring.position.x = 40;
+saturn_ring.position.y = -10;
+saturn_ring.position.z = 444;
+saturn_ring.rotation.x = 1.7;
+saturn_ring.rotation.y = 0;
+saturn_ring.rotation.z = 0;
 
 // Jupyter
 const jupyterTexture = new THREE.TextureLoader().load('newlook/assets/jupyter.webp');
+jupyterTexture.minFilter = THREE.NearestFilter;
+jupyterTexture.magFilter = THREE.NearestFilter;
 const jupyter = new THREE.Mesh(new THREE.SphereGeometry(35, 64, 64), new THREE.MeshBasicMaterial({ map: jupyterTexture }));
 scene.add(jupyter);
 jupyter.position.x = -43;
@@ -128,6 +172,8 @@ jupyter.position.z = 735;
 
 // Sun
 const sunTexture = new THREE.TextureLoader().load('newlook/assets/sun.webp');
+sunTexture.minFilter = THREE.NearestFilter;
+sunTexture.magFilter = THREE.NearestFilter;
 const sun = new THREE.Mesh(new THREE.SphereGeometry(350, 64, 64), new THREE.MeshBasicMaterial({ map: sunTexture }));
 scene.add(sun);
 sun.position.x = 360;
@@ -200,6 +246,8 @@ function animate() {
   orbit_neptune = animate_orbit(neptune,orbit_neptune,18,neptune_orbital_speed);
   orbit_uranus = animate_orbit(uranus,orbit_uranus,22,uranus_orbital_speed);
   orbit_saturn = animate_orbit(saturn,orbit_saturn,55,saturn_orbital_speed);
+  // For sarturn-ring
+  animate_orbit(saturn_ring,orbit_saturn,55,saturn_orbital_speed);
   orbit_jupyter = animate_orbit(jupyter,orbit_jupyter,80,jupyter_orbital_speed);
 
   earth.rotation.y -= 0.001;
@@ -207,6 +255,7 @@ function animate() {
   mars.rotation.y += 0.004
   mercury.rotation.y += 0.003;
   saturn.rotation.y -= 0.005;
+  saturn_ring.rotation.z += 0.005;
   venus.rotation.y += 0.002;
   jupyter.rotation.y -= 0.002;
   uranus.rotation.y += 0.008;
