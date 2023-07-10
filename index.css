@@ -1,3 +1,7 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 
 body{
   background-color: black;
@@ -88,6 +92,7 @@ section {
   background: var(--dark-bg);
   font-size: 1.5rem;
   margin-top: var(--spacing);
+  height:fit-content;
 }
 
 .right{
@@ -96,6 +101,7 @@ section {
   background: var(--dark-bg);
   font-size: 1.5rem;
   margin-top: calc(var(--spacing)*3);
+  height:fit-content;
 }
 
 section2 {
@@ -104,6 +110,7 @@ section2 {
   margin-bottom: var(--spacing2);
   margin-top: var(--spacing2);
   font-size: 1.8rem;
+  height:fit-content;
 }
 
 
@@ -256,6 +263,17 @@ img{
     background: var(--dark-bg);
     font-size: 1.1rem;
     margin-top: var(--spacing);
+    height:fit-content;
+  }
+
+
+.right{
+    grid-column: 2 / 20;
+    padding: 0.8em;
+    background: var(--dark-bg);
+    font-size: 1.1rem;
+    margin-top: var(--spacing);
+    height:fit-content;
   }
 
   img{
@@ -271,6 +289,7 @@ img{
     background: var(--dark-bg);
     margin-top: var(--spacing2);
     font-size: 1.3rem;
+    height:fit-content;
   }
 
   section2 img{
