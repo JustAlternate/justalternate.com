@@ -46,7 +46,7 @@ Array(800).fill().forEach(addStar);
 
 // Earth
 
-const earthTexture = new THREE.TextureLoader().load('newlook/assets/earth.webp');
+const earthTexture = new THREE.TextureLoader().load('assets/earth.webp');
 earthTexture.minFilter = THREE.NearestFilter;
 earthTexture.magFilter = THREE.NearestFilter;
 const earth = new THREE.Mesh(new THREE.SphereGeometry(1, 64, 64), new THREE.MeshBasicMaterial({ map: earthTexture }));
@@ -59,7 +59,7 @@ earth.rotation.z = 0.3;
 earth.rotation.y = -1.5;
 
 // Moon
-const moonTexture = new THREE.TextureLoader().load('newlook/assets/moon.webp');
+const moonTexture = new THREE.TextureLoader().load('assets/moon.webp');
 moonTexture.minFilter = THREE.NearestFilter;
 moonTexture.magFilter = THREE.NearestFilter;
 const moon = new THREE.Mesh(new THREE.SphereGeometry(0.8, 64, 64), new THREE.MeshBasicMaterial({ map: moonTexture }));
@@ -72,7 +72,7 @@ moon.rotation.z = 0.3;
 moon.rotation.y = -1.5;
 
 // Mercury
-const mercuryTexture = new THREE.TextureLoader().load('newlook/assets/mercury.webp');
+const mercuryTexture = new THREE.TextureLoader().load('assets/mercury.webp');
 mercuryTexture.minFilter = THREE.NearestFilter;
 mercuryTexture.magFilter = THREE.NearestFilter;
 const mercury = new THREE.Mesh(new THREE.SphereGeometry(1.2, 64, 64), new THREE.MeshBasicMaterial({ map: mercuryTexture }));
@@ -82,7 +82,7 @@ mercury.position.y = -3.5;
 mercury.position.z = 23.6;
 
 // Mars
-const marsTexture = new THREE.TextureLoader().load('newlook/assets/mars.webp');
+const marsTexture = new THREE.TextureLoader().load('assets/mars.webp');
 marsTexture.minFilter = THREE.NearestFilter;
 marsTexture.magFilter = THREE.NearestFilter;
 const mars = new THREE.Mesh(new THREE.SphereGeometry(1.75, 64, 64), new THREE.MeshBasicMaterial({ map: marsTexture }));
@@ -92,7 +92,7 @@ mars.position.y = 3.5;
 mars.position.z = 60.9;
 
 // Venus
-const venusTexture = new THREE.TextureLoader().load('newlook/assets/venus.jpg');
+const venusTexture = new THREE.TextureLoader().load('assets/venus.jpg');
 venusTexture.minFilter = THREE.NearestFilter;
 venusTexture.magFilter = THREE.NearestFilter;
 const venus = new THREE.Mesh(new THREE.SphereGeometry(3, 64, 64), new THREE.MeshBasicMaterial({ map: venusTexture }));
@@ -102,7 +102,7 @@ venus.position.y = -3;
 venus.position.z = 119;
 
 // Neptune
-const neptuneTexture = new THREE.TextureLoader().load('newlook/assets/neptune.webp');
+const neptuneTexture = new THREE.TextureLoader().load('assets/neptune.webp');
 neptuneTexture.minFilter = THREE.NearestFilter;
 neptuneTexture.magFilter = THREE.NearestFilter;
 const neptune = new THREE.Mesh(new THREE.SphereGeometry(12, 64, 64), new THREE.MeshBasicMaterial({ map: neptuneTexture }));
@@ -112,7 +112,7 @@ neptune.position.y = 8;
 neptune.position.z = 213;
 
 // Uranus
-const uranusTexture = new THREE.TextureLoader().load('newlook/assets/uranus.webp');
+const uranusTexture = new THREE.TextureLoader().load('assets/uranus.webp');
 uranusTexture.minFilter = THREE.NearestFilter;
 uranusTexture.magFilter = THREE.NearestFilter;
 const uranus = new THREE.Mesh(new THREE.SphereGeometry(12, 64, 64), new THREE.MeshBasicMaterial({ map: uranusTexture }));
@@ -123,7 +123,7 @@ uranus.position.z = 277;
 
 
 // Saturn
-const saturnTexture = new THREE.TextureLoader().load('newlook/assets/saturn(no ring).webp');
+const saturnTexture = new THREE.TextureLoader().load('assets/saturn(no ring).webp');
 saturnTexture.minFilter = THREE.NearestFilter;
 saturnTexture.magFilter = THREE.NearestFilter;
 const saturn = new THREE.Mesh(new THREE.SphereGeometry(30, 64, 64), new THREE.MeshBasicMaterial({ map: saturnTexture }));
@@ -160,7 +160,7 @@ saturn_ring.rotation.y = 0;
 saturn_ring.rotation.z = 0;
 
 // Jupyter
-const jupyterTexture = new THREE.TextureLoader().load('newlook/assets/jupyter.webp');
+const jupyterTexture = new THREE.TextureLoader().load('assets/jupyter.webp');
 jupyterTexture.minFilter = THREE.NearestFilter;
 jupyterTexture.magFilter = THREE.NearestFilter;
 const jupyter = new THREE.Mesh(new THREE.SphereGeometry(35, 64, 64), new THREE.MeshBasicMaterial({ map: jupyterTexture }));
@@ -171,7 +171,7 @@ jupyter.position.z = 735;
 
 
 // Sun
-const sunTexture = new THREE.TextureLoader().load('newlook/assets/sun.webp');
+const sunTexture = new THREE.TextureLoader().load('assets/sun.webp');
 sunTexture.minFilter = THREE.NearestFilter;
 sunTexture.magFilter = THREE.NearestFilter;
 const sun = new THREE.Mesh(new THREE.SphereGeometry(350, 64, 64), new THREE.MeshBasicMaterial({ map: sunTexture }));
