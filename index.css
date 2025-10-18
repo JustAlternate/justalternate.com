@@ -1,10 +1,20 @@
-html, body {
-    max-width: 100%;
-    overflow-x: hidden;
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo+2:wght@300;500&display=swap');
+
+h1, h2, h3 {
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ffffff;
 }
 
-body{
-  background-color: black;
+html, body {
+
+  font-family: 'Exo 2', sans-serif;
+  color: #e0e0e0;
+  background-color: #0b0f19;
+
+	max-width: 100%;
+	overflow-x: hidden;
   cursor: none;
 }
 
@@ -31,11 +41,6 @@ canvas {
   --dark-bg: rgba(15, 15, 15, 0.50);
   --spacing: 500px;
   --spacing2: 250px;
-
-  font-family: 'Source Code Pro';
-  font-weight: 800;
-  font-style: normal;
-
 }
 main {
   width: 100vw;
@@ -63,8 +68,6 @@ comment {
 }
 
 h1, h2, h3, blockquote {
-  font-weight: 500;
-  font-style: normal;
   text-align: center;
 }
 
