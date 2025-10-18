@@ -314,15 +314,13 @@ img{
 
 .image-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 10px;
   padding: 10px;
 }
 
 .image-container img {
-  width: 100%;
-  height: 150px; /* Fixed height for all images */
-  object-fit: cover; /* Maintain aspect ratio while filling the box */
-  border-radius: 4px; /* Optional: rounded corners */
+  width: 6vw;
+  object-fit: fill;
 }
 
