@@ -3,26 +3,41 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.m
 const starfieldCanvas = document.getElementById('starfield');
 
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 2000);
+
+function getCanvasSize() {
+  // Use documentElement.clientWidth to exclude scrollbar
+  return {
+    width: document.documentElement.clientWidth,
+    height: document.documentElement.clientHeight
+  };
+}
+
+const size = getCanvasSize();
+const camera = new THREE.PerspectiveCamera(75, size.width / size.height, 0.1, 10000);
 const renderer = new THREE.WebGLRenderer({
   canvas: starfieldCanvas,
   antialias: true,
   alpha: true
 });
 
-renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setSize(size.width, size.height, false);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
 const starGeometry = new THREE.BufferGeometry();
-const starCount = 2500;
+const starCount = 1500;
 const positions = new Float32Array(starCount * 3);
 const colors = new Float32Array(starCount * 3);
 
 for (let i = 0; i < starCount; i++) {
   const i3 = i * 3;
-  positions[i3] = (Math.random() - 0.5) * 2000;
-  positions[i3 + 1] = (Math.random() - 0.5) * 2000;
-  positions[i3 + 2] = (Math.random() - 0.5) * 2000;
+  // Spherical distribution for even coverage
+  const radius = 800 + Math.random() * 2000;
+  const theta = Math.random() * Math.PI * 2;
+  const phi = Math.acos((Math.random() * 2) - 1);
+  
+  positions[i3] = radius * Math.sin(phi) * Math.cos(theta);
+  positions[i3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
+  positions[i3 + 2] = radius * Math.cos(phi);
 
   const brightness = 0.5 + Math.random() * 0.5;
   colors[i3] = brightness;
@@ -34,7 +49,7 @@ starGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 starGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
 const starMaterial = new THREE.PointsMaterial({
-  size: 1.5,
+  size: 4,
   vertexColors: true,
   transparent: true,
   opacity: 0.8,
@@ -50,15 +65,20 @@ const accentPositions = new Float32Array(accentStarCount * 3);
 
 for (let i = 0; i < accentStarCount; i++) {
   const i3 = i * 3;
-  accentPositions[i3] = (Math.random() - 0.5) * 2000;
-  accentPositions[i3 + 1] = (Math.random() - 0.5) * 2000;
-  accentPositions[i3 + 2] = (Math.random() - 0.5) * 2000;
+  // Spherical distribution for even coverage
+  const radius = 600 + Math.random() * 1000;
+  const theta = Math.random() * Math.PI * 2;
+  const phi = Math.acos((Math.random() * 2) - 1);
+  
+  accentPositions[i3] = radius * Math.sin(phi) * Math.cos(theta);
+  accentPositions[i3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
+  accentPositions[i3 + 2] = radius * Math.cos(phi);
 }
 
 accentStarGeometry.setAttribute('position', new THREE.BufferAttribute(accentPositions, 3));
 
 const accentStarMaterial = new THREE.PointsMaterial({
-  size: 2.5,
+  size: 6,
   color: 0xBC3040,
   transparent: true,
   opacity: 0.9,
@@ -68,34 +88,36 @@ const accentStarMaterial = new THREE.PointsMaterial({
 const accentStars = new THREE.Points(accentStarGeometry, accentStarMaterial);
 scene.add(accentStars);
 
-camera.position.z = 500;
+camera.position.z = 0;
+camera.position.x = 0;
+camera.position.y = 0;
 
 let scrollY = 0;
 let targetScrollY = 0;
 
-window.addEventListener('scroll', () => {
-  scrollY = window.scrollY;
-});
+function updateScroll() {
+  scrollY = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
+}
+
+window.addEventListener('scroll', updateScroll, { passive: true });
+
+// Initialize scroll position
+updateScroll();
 
 function animateStars() {
-  targetScrollY += (scrollY - targetScrollY) * 0.05;
+  targetScrollY += (scrollY - targetScrollY) * 0.03;
 
+  // Scroll-based rotation - subtle parallax effect
   stars.rotation.y = targetScrollY * 0.0002;
   stars.rotation.x = targetScrollY * 0.0001;
 
   accentStars.rotation.y = targetScrollY * 0.00015;
   accentStars.rotation.x = targetScrollY * 0.00005;
 
-  accentStars.position.z = (targetScrollY * 0.3) % 200;
-
-  const positions = stars.geometry.attributes.position.array;
-  for (let i = 0; i < starCount; i++) {
-    const i3 = i * 3;
-    if (positions[i3 + 1] < -1000) {
-      positions[i3 + 1] = 1000;
-    }
-  }
-  stars.geometry.attributes.position.needsUpdate = true;
+  // Very subtle idle rotation
+  stars.rotation.y += 0.00005;
+  stars.rotation.z += 0.00002;
+  accentStars.rotation.y -= 0.00008;
 }
 
 function animate() {
@@ -106,16 +128,47 @@ function animate() {
 
 animate();
 
-window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
+function handleResize() {
+  const size = getCanvasSize();
+  camera.aspect = size.width / size.height;
   camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-});
+  renderer.setSize(size.width, size.height, false);
+}
+
+window.addEventListener('resize', handleResize);
+
+// Use ResizeObserver for more reliable canvas size detection
+const resizeObserver = new ResizeObserver(handleResize);
+resizeObserver.observe(starfieldCanvas);
 
 const revealElements = document.querySelectorAll('.reveal');
 
+// Track which elements are in hero for special handling
+let delayAccumulator = 0;
+const baseDelay = 0.08; // 80ms between elements
+
+// Apply staggered delays to all reveal elements based on DOM order
+revealElements.forEach((el, index) => {
+  const rect = el.getBoundingClientRect();
+  
+  // Calculate delay based on position in page (top to bottom)
+  // Elements higher up get smaller delays
+  const delay = index * baseDelay;
+  
+  // Set transition delay for staggered effect
+  el.style.transitionDelay = `${delay}s`;
+  
+  // If element is in viewport on load, trigger animation
+  if (rect.top < window.innerHeight && rect.bottom > 0) {
+    // Small timeout to ensure transition is applied
+    setTimeout(() => {
+      el.classList.add('visible');
+    }, 50);
+  }
+});
+
 const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
       revealObserver.unobserve(entry.target);
@@ -126,7 +179,11 @@ const revealObserver = new IntersectionObserver((entries) => {
   rootMargin: '0px 0px -50px 0px'
 });
 
-revealElements.forEach(el => revealObserver.observe(el));
+revealElements.forEach(el => {
+  if (!el.classList.contains('visible')) {
+    revealObserver.observe(el);
+  }
+});
 
 const REPO_LIST = [
   'My-Managed-Kubernetes',
