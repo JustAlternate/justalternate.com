@@ -16,11 +16,11 @@
   --accent-dim: rgba(188, 48, 64, 0.15);
   --border: #27272a;
   --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --max-width: 800px;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 2rem;
-  --spacing-xl: 4rem;
+  --max-width: 1200px;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 3rem;
+  --spacing-xl: 6rem;
   --transition: 0.3s ease;
 }
 
@@ -59,16 +59,15 @@ h1, h2 {
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 h2 {
-  font-size: 1.25rem;
   color: var(--text-secondary);
   margin-bottom: var(--spacing-md);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  font-size: 0.875rem;
+  font-size: 1.125rem;
 }
 
 p {
@@ -103,18 +102,18 @@ section {
 }
 
 .avatar {
-  width: 150px;
-  height: 150px;
+  width: 225px;
+  height: 225px;
   border-radius: 50%;
   object-fit: cover;
   object-position: top;
-  border: 3px solid var(--accent);
-  box-shadow: 0 0 40px var(--accent-dim);
+  border: 4px solid var(--accent);
+  box-shadow: 0 0 60px var(--accent-dim);
   transition: box-shadow var(--transition);
 }
 
 .avatar-container:hover .avatar {
-  box-shadow: 0 0 60px var(--accent-dim);
+  box-shadow: 0 0 90px var(--accent-dim);
 }
 
 .hero h1 {
@@ -126,13 +125,13 @@ section {
 }
 
 .subtitle {
-  font-size: 1.125rem;
+  font-size: 1.5rem;
   color: var(--accent);
   margin-bottom: var(--spacing-sm);
 }
 
 .tagline {
-  font-size: 0.9375rem;
+  font-size: 1.25rem;
   color: var(--text-secondary);
 }
 
@@ -144,8 +143,16 @@ section {
   text-align: center;
 }
 
+.interests {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: var(--spacing-lg);
+  text-align: center;
+}
+
 .interests p {
-  font-size: 0.9375rem;
+  font-size: 1.4rem;
   line-height: 1.8;
 }
 
@@ -177,8 +184,8 @@ section {
 }
 
 .marquee-content img {
-  width: 48px;
-  height: 48px;
+  width: 72px;
+  height: 72px;
   flex-shrink: 0;
   filter: grayscale(50%);
   transition: filter var(--transition), transform var(--transition);
@@ -241,7 +248,7 @@ section {
   display: block;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 18px;
   padding: var(--spacing-md);
   text-decoration: none;
   transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
@@ -249,8 +256,8 @@ section {
 
 .repo-card:hover {
   border-color: var(--accent);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px var(--accent-dim);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 45px var(--accent-dim);
 }
 
 .repo-header {
@@ -261,7 +268,7 @@ section {
 }
 
 .repo-name {
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   font-weight: 500;
   color: var(--text-primary);
 }
@@ -270,6 +277,8 @@ section {
   color: var(--text-secondary);
   opacity: 0;
   transition: opacity var(--transition);
+  width: 21px;
+  height: 21px;
 }
 
 .repo-card:hover .icon-external {
@@ -277,7 +286,7 @@ section {
 }
 
 .repo-description {
-  font-size: 0.675rem;
+  font-size: 1rem;
   color: var(--text-secondary);
   margin-bottom: var(--spacing-sm);
   line-height: 1.5;
@@ -291,19 +300,19 @@ section {
   display: flex;
   align-items: center;
   gap: var(--spacing-md);
-  font-size: 0.8125rem;
+  font-size: 1.125rem;
   color: var(--text-secondary);
 }
 
 .repo-language {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 9px;
 }
 
 .language-dot {
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   background-color: var(--accent);
 }
@@ -312,12 +321,12 @@ section {
 .repo-forks {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
 }
 
 .fork-icon {
-  width: 14px;
-  height: 14px;
+  width: 21px;
+  height: 21px;
   opacity: 0.7;
 }
 }
@@ -325,13 +334,13 @@ section {
 .contributions-container {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 18px;
   padding: var(--spacing-md);
 }
 
 #contributions-svg {
   width: 100%;
-  border-radius: 8px;
+  border-radius: 12px;
   margin-bottom: var(--spacing-sm);
   overflow: hidden;
 }
@@ -343,7 +352,7 @@ section {
 }
 
 .contributions-count {
-  font-size: 0.875rem;
+  font-size: 1.125rem;
   color: var(--text-secondary);
   text-align: center;
 }
@@ -376,7 +385,7 @@ footer a {
   gap: var(--spacing-sm);
   color: var(--text-secondary);
   text-decoration: none;
-  font-size: 0.9375rem;
+  font-size: 1.25rem;
   transition: color var(--transition);
 }
 
@@ -385,8 +394,8 @@ footer a:hover {
 }
 
 footer svg {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
 }
 
 @media (max-width: 640px) {

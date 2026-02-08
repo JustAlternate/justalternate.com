@@ -212,7 +212,7 @@ async function initGitHubSection() {
     const response = await fetch(url);
     let svgText = await response.text();
 
-    const customStyles = `
+const customStyles = `
       #deno-github-contributions-graph .pixel {
         width: 10px;
         height: 10px;
@@ -237,6 +237,14 @@ async function initGitHubSection() {
 
     const container = document.getElementById('contributions-svg');
     container.innerHTML = svgText;
+
+    const svg = container.querySelector('svg');
+    if (svg) {
+      svg.style.transform = 'scale(1.5)';
+      svg.style.transformOrigin = 'top left';
+      svg.style.width = '150%';
+      svg.style.height = '150%';
+    }
 
     document.getElementById('contributions-count').textContent = '';
   } catch (error) {
