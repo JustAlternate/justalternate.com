@@ -1,122 +1,238 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Weber Loïc PortFolio</title>
-    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-		<link rel="stylesheet" type="text/css" href="index.css" />
-	</head>
-	<body>
-		<canvas id="bg"></canvas>   
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<main>
-			<div class="div">
-			  <div class="chevron","div"></div>
-			  <div class="chevron","div"></div>
-			  <div class="chevron","div"></div>
-			  <span class="scroll_text">Scroll down</span>
-			</div>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Weber Loïc - Future SRE | Platform Engineer - Building reliable systems at scale">
+  <title>Weber Loïc | Future SRE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <canvas id="starfield"></canvas>
 
-			<header>
-				<h1>&#129333; Weber Loïc </h1>
-				<h2>Etudiant en Alternance à Polytech Nantes en Ingénierie des données et de l’intelligence artificielle IDIA.</h2>
-				<img src="assets/Moi2.png">
-			</header>
+  <main>
+    <header class="hero reveal">
+      <div class="avatar-container">
+        <img src="assets/Moi2.png" alt="Loïc Weber" class="avatar">
+      </div>
+      <h1>Weber Loïc</h1>
+      <p class="subtitle">Future SRE | Platform Engineer</p>
+      <p class="tagline">Building reliable systems at scale</p>
+    </header>
 
-			<blockquote>
-				<p> Centre d'intérêts: Open Source, DevOPS, Platform Engineering, SRE, Infra as Code, Everything as Code, Continuous Integration, Continuous Deployment, Observability, Cloud-native computing, LLM...</p>
-			</blockquote>
+    <section class="interests reveal">
+      <h2>Focus Areas</h2>
+      <p>Open Source • DevOps • Platform Engineering • SRE • Infra as Code • Everything as Code • CI/CD • Observability • Cloud-native • LLM</p>
+    </section>
 
+    <section class="tech-languages reveal">
+      <h2>Languages</h2>
+      <div class="marquee">
+        <div class="marquee-content">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original-wordmark.svg" alt="Go" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" alt="Bash" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="C" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ocaml/ocaml-original.svg" alt="OCaml" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="TypeScript" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scala/scala-original.svg" alt="Scala" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original-wordmark.svg" alt="Go" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" alt="Bash" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="C" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ocaml/ocaml-original.svg" alt="OCaml" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="TypeScript" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scala/scala-original.svg" alt="Scala" />
+        </div>
+      </div>
+    </section>
 
-		  <section>
-			<h1>📜 Parcours</h1>
-			<p>
-			2014-2017 : Brevet des collèges mention très bien.
-			</p>
+    <section class="technologies reveal">
+      <h2>Technologies</h2>
+      <div class="marquee">
+        <div class="marquee-content">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="Linux" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nixos/nixos-original.svg" alt="NixOS" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg" alt="Terraform" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/archlinux/archlinux-original.svg" alt="Arch Linux" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cloudflare/cloudflare-original.svg" alt="Cloudflare" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grafana/grafana-original.svg" alt="Grafana" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prometheus/prometheus-original.svg" alt="Prometheus" />
+          <img src="https://raw.githubusercontent.com/gist/aslafy-z/97271013882ed61a4c3f83e161284402/raw/243c894a9f78bc72fa143fdd6a673aa8f9569c75/grafana-loki.svg" alt="Loki" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg" alt="Nginx" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grpc/grpc-original.svg" alt="gRPC" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nomad/nomad-original.svg" alt="Nomad" />
+					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/consul/consul-original.svg" alt="Consul" />
+          <img src="assets/Keycloak.svg" alt="Keycloak" />
+					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/circleci/circleci-plain.svg" alt="CircleCI" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg" alt="GitHub Actions" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg" alt="Kubernetes" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/helm/helm-original.svg" alt="Helm" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="Linux" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nixos/nixos-original.svg" alt="NixOS" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg" alt="Terraform" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/archlinux/archlinux-original.svg" alt="Arch Linux" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cloudflare/cloudflare-original.svg" alt="Cloudflare" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grafana/grafana-original.svg" alt="Grafana" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prometheus/prometheus-original.svg" alt="Prometheus" />
+          <img src="https://raw.githubusercontent.com/gist/aslafy-z/97271013882ed61a4c3f83e161284402/raw/243c894a9f78bc72fa143fdd6a673aa8f9569c75/grafana-loki.svg" alt="Loki" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg" alt="Nginx" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grpc/grpc-original.svg" alt="gRPC" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nomad/nomad-original.svg" alt="Nomad" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/consul/consul-original.svg" alt="Consul" />
+          <img src="assets/Keycloak.svg" alt="Keycloak" />
+					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/circleci/circleci-plain.svg" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg" alt="GitHub Actions" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg" alt="Kubernetes" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/helm/helm-original.svg" alt="Helm" />
+        </div>
+      </div>
+    </section>
 
-			<p>
-			2017-2021 : Bac Mathématique, Numérique et science de l'informatique mention très bien.
-			</p>
+    <section class="github reveal">
+      <h2>GitHub</h2>
+      <div class="github-grid">
+        <div class="repos-container">
+          <h3>Featured Repositories</h3>
+          <div class="repos-list" id="repos-list">
+            <a href="https://github.com/JustAlternate/My-Managed-Kubernetes" target="_blank" rel="noopener noreferrer" class="repo-card" data-repo="My-Managed-Kubernetes">
+              <div class="repo-header">
+                <span class="repo-name">Loading...</span>
+                <svg class="icon-external" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </div>
+              <p class="repo-description">Loading...</p>
+              <div class="repo-meta">
+                <span class="repo-language">
+                  <span class="language-dot"></span>
+                  <span class="language-name">-</span>
+                </span>
+                <span class="repo-stars">★ -</span>
+                <span class="repo-forks">
+                    <img src="assets/git-fork-svgrepo-com.svg" alt="forks" class="fork-icon">
+                    <span class="fork-count">-</span>
+                  </span>
+              </div>
+            </a>
+            <a href="https://github.com/JustAlternate/nixcfg" target="_blank" rel="noopener noreferrer" class="repo-card" data-repo="nixcfg">
+              <div class="repo-header">
+                <span class="repo-name">Loading...</span>
+                <svg class="icon-external" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </div>
+              <p class="repo-description">Loading...</p>
+              <div class="repo-meta">
+                <span class="repo-language">
+                  <span class="language-dot"></span>
+                  <span class="language-name">-</span>
+                </span>
+                <span class="repo-stars">★ -</span>
+                <span class="repo-forks">
+                    <img src="assets/git-fork-svgrepo-com.svg" alt="forks" class="fork-icon">
+                    <span class="fork-count">-</span>
+                  </span>
+              </div>
+            </a>
+            <a href="https://github.com/JustAlternate/justalternate.com" target="_blank" rel="noopener noreferrer" class="repo-card" data-repo="justalternate.com">
+              <div class="repo-header">
+                <span class="repo-name">Loading...</span>
+                <svg class="icon-external" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </div>
+              <p class="repo-description">Loading...</p>
+              <div class="repo-meta">
+                <span class="repo-language">
+                  <span class="language-dot"></span>
+                  <span class="language-name">-</span>
+                </span>
+                <span class="repo-stars">★ -</span>
+                <span class="repo-forks">
+                    <img src="assets/git-fork-svgrepo-com.svg" alt="forks" class="fork-icon">
+                    <span class="fork-count">-</span>
+                  </span>
+              </div>
+            </a>
+            <a href="https://github.com/JustAlternate/justnixvim" target="_blank" rel="noopener noreferrer" class="repo-card" data-repo="justnixvim">
+              <div class="repo-header">
+                <span class="repo-name">Loading...</span>
+                <svg class="icon-external" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </div>
+              <p class="repo-description">Loading...</p>
+              <div class="repo-meta">
+                <span class="repo-language">
+                  <span class="language-dot"></span>
+                  <span class="language-name">-</span>
+                </span>
+                <span class="repo-stars">★ -</span>
+                <span class="repo-forks">
+                    <img src="assets/git-fork-svgrepo-com.svg" alt="forks" class="fork-icon">
+                    <span class="fork-count">-</span>
+                  </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="contributions-container">
+          <h3>Activity</h3>
+          <div id="contributions-svg"></div>
+          <p class="contributions-count" id="contributions-count">Loading...</p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-			<p>
-			2021-2023 : Prépa-intégrée Polytech Grenoble Mathématique et Informatique.
-			</p>
+  <footer class="reveal">
+    <a href="https://github.com/JustAlternate" target="_blank" rel="noopener noreferrer">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+      </svg>
+      GitHub
+    </a>
+    <a href="https://www.linkedin.com/in/lo%C3%AFc-weber-3488672a0" target="_blank" rel="noopener noreferrer">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+      </svg>
+      LinkedIn
+    </a>
+    <a href="mailto:loicw@justalternate.com">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+        <polyline points="22,6 12,13 2,6"/>
+      </svg>
+      Email
+    </a>
+  </footer>
 
-			<p>
-			2023-2026 : École d'ingénieur Polytech Nantes filière IDIA & Alternant apprenti Platform engineer chez IAdvize
-			</p>
-
-		  </section>
-
-		  <section class="right">
-			<h1>⌨️ Langage de Programmation</h1>
-				<div class="image-container">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original-wordmark.svg" />
-					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" />	
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" />	
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ocaml/ocaml-original.svg" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scala/scala-original.svg" />
-				</div>
-      </section>
-      <section>
-			<h1>🦿 Technologies utilisées</h1>
-				<div class="image-container">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nixos/nixos-original.svg" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/archlinux/archlinux-original.svg" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cloudflare/cloudflare-original.svg" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grafana/grafana-original.svg" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prometheus/prometheus-original.svg" />
-          <img src= "https://raw.githubusercontent.com/gist/aslafy-z/97271013882ed61a4c3f83e161284402/raw/243c894a9f78bc72fa143fdd6a673aa8f9569c75/grafana-loki.svg" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grpc/grpc-original.svg" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nomad/nomad-original.svg" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/consul/consul-original.svg" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/threejs/threejs-original.svg" />
-				</div>
-      </section>
-
-		  <section class="right">
-			<h1>📝 Mon GitHub</h1>
-			<a href="https://github.com/JustAlternate" class="link_on_index">
-				<img style="width:100%;" src="assets/github_profile.png">
-			</a>
-		  </section>
-		</main>
-	</body>
-	<script type="module" src="index.js"></script>
+  <script type="module" src="index.js"></script>
+</body>
 </html>
