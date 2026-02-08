@@ -338,6 +338,12 @@ section {
   padding: var(--spacing-md);
 }
 
+@media (max-width: 640px) {
+  .contributions-container {
+    display: none;
+  }
+}
+
 #contributions-svg {
   width: 100%;
   border-radius: 12px;

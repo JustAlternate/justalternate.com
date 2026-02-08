@@ -155,11 +155,49 @@ const LANGUAGE_COLORS = {
   'Java': '#b07219'
 };
 
+const CACHE_KEY_PREFIX = 'github_data';
+const CACHE_EXPIRY_DAYS = 1;
+
+function getTodayDateString() {
+  return new Date().toISOString().split('T')[0];
+}
+
+function getCacheKey(key) {
+  return `${CACHE_KEY_PREFIX}_${key}_${getTodayDateString()}`;
+}
+
+function getFromCache(key) {
+  const cacheKey = getCacheKey(key);
+  const cached = localStorage.getItem(cacheKey);
+  if (cached) {
+    try {
+      const parsed = JSON.parse(cached);
+      return parsed;
+    } catch (e) {
+      return null;
+    }
+  }
+  return null;
+}
+
+function saveToCache(key, data) {
+  const cacheKey = getCacheKey(key);
+  localStorage.setItem(cacheKey, JSON.stringify(data));
+}
+
 async function fetchRepoData(repoName) {
+  const cacheKey = `repo_${repoName}`;
+  const cached = getFromCache(cacheKey);
+  if (cached) {
+    return cached;
+  }
+
   try {
     const response = await fetch(`https://api.github.com/repos/JustAlternate/${repoName}`);
     if (!response.ok) throw new Error('Failed to fetch');
-    return await response.json();
+    const data = await response.json();
+    saveToCache(cacheKey, data);
+    return data;
   } catch (error) {
     console.error(`Failed to fetch repo ${repoName}:`, error);
     return null;
@@ -206,13 +244,29 @@ async function initGitHubSection() {
   const fromStr = fromDate.toISOString().split('T')[0];
   const toStr = toDate.toISOString().split('T')[0];
 
+  const cacheKey = 'contributions';
+  const cachedSvg = getFromCache(cacheKey);
+  if (cachedSvg) {
+    const container = document.getElementById('contributions-svg');
+    container.innerHTML = cachedSvg;
+    const svg = container.querySelector('svg');
+    if (svg) {
+      svg.style.transform = 'scale(1.5)';
+      svg.style.transformOrigin = 'top left';
+      svg.style.width = '150%';
+      svg.style.height = '150%';
+    }
+    document.getElementById('contributions-count').textContent = '';
+    return;
+  }
+
   const url = `https://github-contributions-api.deno.dev/JustAlternate.svg?from=${fromStr}&to=${toStr}&bg=1a1a1a&font-color=ffffff&no-legend=true`;
 
   try {
     const response = await fetch(url);
     let svgText = await response.text();
 
-const customStyles = `
+    const customStyles = `
       #deno-github-contributions-graph .pixel {
         width: 10px;
         height: 10px;
@@ -234,6 +288,8 @@ const customStyles = `
     `;
 
     svgText = svgText.replace(/<style>.*?<\/style>/s, `<style>${customStyles}</style>`);
+
+    saveToCache(cacheKey, svgText);
 
     const container = document.getElementById('contributions-svg');
     container.innerHTML = svgText;
