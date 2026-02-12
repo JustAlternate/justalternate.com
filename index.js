@@ -372,22 +372,6 @@ if ('scrollRestoration' in history) {
 }
 window.scrollTo(0, 0);
 
-// Scroll speed control for marquee sections
-const speedSlider = document.getElementById('scrollSpeed');
 
-if (speedSlider) {
-  // Always reset slider to far left on page load
-  speedSlider.value = 1;
-  
-  // Set default speed on page load (slider at left = slowest = 30s)
-  document.documentElement.style.setProperty('--marquee-speed', '30s');
-  
-  speedSlider.addEventListener('input', (e) => {
-    const sliderValue = parseInt(e.target.value);
-    // Invert: left (1) = 30s (slow), right (100) = 1s (fast)
-    const speed = 30 - (sliderValue - 1) * 0.29;
-    document.documentElement.style.setProperty('--marquee-speed', `${speed}s`);
-  });
-}
 
 initGitHubSection();
