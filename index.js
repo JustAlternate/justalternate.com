@@ -198,18 +198,13 @@ const LANGUAGE_COLORS = {
   'Python': '#3572A5',
   'Go': '#00ADD8',
   'Java': '#b07219',
-  'C': '#555555',
-  'Shell': '#89e051',
-  'OCaml': '#EF7A08',
-  'PHP': '#4F5D95',
-  'Scala': '#c22d40',
+  'Bash': '#89e051',
   'Nix': '#7e7eff',
   'HTML': '#e34c26',
   'CSS': '#563d7c',
   'Vue': '#41b883',
   'Ruby': '#701516',
-  'Rust': '#dea584',
-  'Java': '#b07219'
+  'Rust': '#dea584'
 };
 
 const CACHE_KEY_PREFIX = 'github_data';
@@ -305,15 +300,9 @@ async function initGitHubSection() {
   const cachedSvg = getFromCache(cacheKey);
   if (cachedSvg) {
     const container = document.getElementById('contributions-svg');
-    container.innerHTML = cachedSvg;
-    const svg = container.querySelector('svg');
-    if (svg) {
-      svg.style.transform = 'scale(1.5)';
-      svg.style.transformOrigin = 'top left';
-      svg.style.width = '150%';
-      svg.style.height = '150%';
+    if (container) {
+      container.innerHTML = cachedSvg;
     }
-    document.getElementById('contributions-count').textContent = '';
     return;
   }
 
@@ -321,6 +310,7 @@ async function initGitHubSection() {
 
   try {
     const response = await fetch(url);
+    if (!response.ok) throw new Error('Failed to fetch contributions');
     let svgText = await response.text();
 
     const customStyles = `
@@ -349,20 +339,15 @@ async function initGitHubSection() {
     saveToCache(cacheKey, svgText);
 
     const container = document.getElementById('contributions-svg');
-    container.innerHTML = svgText;
-
-    const svg = container.querySelector('svg');
-    if (svg) {
-      svg.style.transform = 'scale(1.5)';
-      svg.style.transformOrigin = 'top left';
-      svg.style.width = '150%';
-      svg.style.height = '150%';
+    if (container) {
+      container.innerHTML = svgText;
     }
-
-    document.getElementById('contributions-count').textContent = '';
   } catch (error) {
     console.error('Failed to load heatmap:', error);
-    document.getElementById('contributions-count').textContent = 'Activity data unavailable';
+    const container = document.querySelector('.contributions-container');
+    if (container) {
+      container.style.display = 'none';
+    }
   }
 }
 
