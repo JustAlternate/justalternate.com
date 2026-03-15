@@ -188,7 +188,7 @@ revealElements.forEach(el => {
 const REPO_LIST = [
   'My-Managed-Kubernetes',
   'nixcfg',
-  'justalternate.com',
+  'fleettui',
   'justnixvim'
 ];
 
