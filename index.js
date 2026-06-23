@@ -2,6 +2,29 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.m
 
 const starfieldCanvas = document.getElementById('starfield');
 
+function showWebGLWarning() {
+  const banner = document.createElement('div');
+  banner.id = 'webgl-warning';
+  banner.textContent = 'WebGL is disabled — enable it in your browser if you want to see the animated background :).';
+  document.body.appendChild(banner);
+}
+
+function isWebGLAvailable() {
+  try {
+    const canvas = document.createElement('canvas');
+    return !!(window.WebGLRenderingContext && (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')));
+  } catch (e) {
+    return false;
+  }
+}
+
+if (!isWebGLAvailable()) {
+  showWebGLWarning();
+} else {
+  initStarfield();
+}
+
+function initStarfield() {
 const scene = new THREE.Scene();
 
 function getCanvasSize() {
@@ -140,6 +163,7 @@ window.addEventListener('resize', handleResize);
 // Use ResizeObserver for more reliable canvas size detection
 const resizeObserver = new ResizeObserver(handleResize);
 resizeObserver.observe(starfieldCanvas);
+}
 
 const revealElements = document.querySelectorAll('.reveal');
 

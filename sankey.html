@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sankey Diagram - Applications Funnel</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 40px 20px;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+        }
+        h2 {
+            color: #1a1a2e;
+            margin-bottom: 24px;
+            font-weight: 600;
+            font-size: 1.4rem;
+            letter-spacing: -0.02em;
+        }
+        .chart-container {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            border: 1px solid #e5e7eb;
+            max-width: 1000px;
+            width: 100%;
+        }
+        .mermaid {
+            display: flex;
+            justify-content: center;
+        }
+        .mermaid svg {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h2>Sankey Diagram : Pipeline de Candidatures</h2>
+    <div class="chart-container">
+        <div class="mermaid">
+            sankey-beta
+                Total Applications, France, 65
+                Total Applications, Outside, 4
+
+                France, Rejected, 31
+                France, Waiting, 28
+                France, 1st Meet, 5
+
+                Outside, Rejected, 2
+                Outside, Waiting, 1
+                Outside, 1st Meet, 1
+
+                1st Meet, 2nd Meet, 3
+
+                2nd Meet, 3rd Meet, 2
+
+                3rd Meet, Offer, 1
+        </div>
+    </div>
+
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#667eea',
+                primaryBorderColor: '#4a5ab8',
+                lineColor: '#8b9dc3',
+                fontSize: '14px'
+            },
+            sankey: {
+                width: 900,
+                height: 600,
+                nodeWidth: 20,
+                nodePadding: 60,
+                showValues: true
+            },
+            securityLevel: 'loose'
+        });
+    </script>
+</body>
+</html>
